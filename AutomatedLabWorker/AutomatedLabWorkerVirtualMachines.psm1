@@ -1572,7 +1572,7 @@ function Mount-LWIsoImage
                     {
                         throw "No DVD drive exist for machine '$machine'. Machine is generation 1 and DVD drive needs to be crate in advance (during creation of the machine). Cannot continue."
                     }
-                    $drive = $vm | Set-VMDvdDrive -Path $IsoPath -ErrorAction Stop -Passthru -AllowUnverifiedPaths
+                    $drive = Set-VMDvdDrive -VMName $vm.Name -Path $IsoPath -ErrorAction Stop -Passthru -AllowUnverifiedPaths
                 }
 
                 Start-Sleep -Seconds $delayBeforeCheck[$delayIndex]
